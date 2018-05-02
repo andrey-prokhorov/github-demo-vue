@@ -1,5 +1,5 @@
 import axios from 'axios'
 
-export function getGithubUser(username) {
-  return axios.get('"https://api.github.com/users/" + username')
+export const getGithubUser = username => {
+  return axios.get('https://api.github.com/users/' + username)
 }

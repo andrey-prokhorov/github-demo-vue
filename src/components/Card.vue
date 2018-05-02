@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <img :src="card.avatar_url" style="width: 75" alt="" />
-    <div style="fontWeight: '700'">{{ card.name }}</div>
+  <div class="card">
+    <img :src="card.avatar_url" alt="" class="avatar" />
+    <div class="name">{{ card.name }}</div>
     <div>{{ card.company }}</div>
   </div>
 </template>
@@ -15,5 +15,15 @@ export default {
 </script>
 
 <style>
+.avatar {
+  width: 75px;
+}
 
+.name {
+  font-weight: '700';
+}
+
+.card {
+  padding: 15px;
+}
 </style>
