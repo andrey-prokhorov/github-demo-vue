@@ -4,17 +4,22 @@
       <input type="text" v-model="username" placeholder="Github username" />
       <button type="submit" @click="getUser">Add card</button>
     </div>
+
+    <div class="summary" v-if="hasUsers">
+      Number of users: {{ numberOfUsers }}
+    </div>
+
     <Card
-      v-for="card in cards"
-      :key="card.id"
-      :card="card"
+      v-for="user in users"
+      :key="user.id"
+      :user="user"
     />
   </div>
 </template>
 
 <script>
 import Card from '@/components/Card'
-import { getGithubUser } from '@/api'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -22,15 +27,16 @@ export default {
   },
   data() {
     return {
-      username: '',
-      cards: []
+      username: ''
     }
+  },
+  computed: {
+    ...mapGetters('user', ['users', 'hasUsers', 'numberOfUsers'])
   },
   methods: {
     getUser() {
-      getGithubUser(this.username).then(response => {
-        console.log(response)
-        this.cards.push(response.data)
+      this.$store.dispatch('user/getUser', this.username).catch(error => {
+        console.error(error)
       })
     }
   }

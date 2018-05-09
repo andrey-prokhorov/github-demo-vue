@@ -1,15 +1,15 @@
 <template>
   <div class="card">
-    <img :src="card.avatar_url" alt="" class="avatar" />
-    <div class="name">{{ card.name }}</div>
-    <div>{{ card.company }}</div>
+    <img :src="user.avatar_url" alt="" class="avatar" />
+    <div class="name">{{ user.name }}</div>
+    <div>{{ user.company }}</div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    card: { type: Object, required: true }
+    user: { type: Object, required: true }
   }
 }
 </script>
