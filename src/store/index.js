@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './modules/user.js'
 
+import cart from './modules/cart'
+import products from './modules/products'
+
 Vue.use(Vuex)
 
 export const state = {}
@@ -15,6 +18,8 @@ export default new Vuex.Store({
   mutations,
   actions,
   modules: {
-    user
+    user,
+    cart,
+    products
   }
 })

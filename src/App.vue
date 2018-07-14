@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <CardList/>
+    <ProductList/>
+    <ShoppingCart/>
   </div>
 </template>
 
 <script>
-import CardList from './components/CardList'
+import ProductList from './components/ProductList'
+import ShoppingCart from './components/ShoppingCart'
 
 export default {
   name: 'App',
   components: {
-    CardList
+    ProductList,
+    ShoppingCart
   }
 }
 </script>
@@ -21,7 +23,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
