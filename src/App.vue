@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <ProductList/>
-    <ShoppingCart/>
+    <Planthouse/>
   </div>
 </template>
 
 <script>
-import ProductList from './components/ProductList'
-import ShoppingCart from './components/ShoppingCart'
+import Planthouse from './components/Planthouse'
 
 export default {
   name: 'App',
   components: {
-    ProductList,
-    ShoppingCart
+    Planthouse
   }
 }
 </script>
