@@ -1,18 +1,19 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+//import 'babel-polyfill'
 import Vue from 'vue'
-import App from './App'
+import App from './components/App.vue'
 import store from './store'
-import { currency } from './currency'
+import { getAllMessages } from './store/actions'
 
-Vue.config.productionTip = false
-Vue.filter('currency', currency)
+Vue.config.debug = true
 
-/* eslint-disable no-new */
+Vue.filter('time', timestamp => {
+  return new Date(timestamp).toLocaleTimeString()
+})
 
 new Vue({
   el: '#app',
   store,
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 })
+
+getAllMessages(store)

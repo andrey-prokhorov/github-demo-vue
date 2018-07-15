@@ -1,25 +1,43 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import user from './modules/user.js'
-
-import cart from './modules/cart'
-import products from './modules/products'
+import * as getters from './getters'
+import * as actions from './actions'
+import mutations from './mutations'
+//import createLogger from '../../../src/plugins/logger'
 
 Vue.use(Vuex)
 
-export const state = {}
-export const getters = {}
-export const mutations = {}
-export const actions = {}
+const state = {
+  currentThreadID: null,
+  threads: {
+    /*
+    id: {
+      id,
+      name,
+      messages: [...ids],
+      lastMessage
+    }
+    */
+  },
+  messages: {
+    /*
+    id: {
+      id,
+      threadId,
+      threadName,
+      authorName,
+      text,
+      timestamp,
+      isRead
+    }
+    */
+  }
+}
 
 export default new Vuex.Store({
   state,
   getters,
-  mutations,
   actions,
-  modules: {
-    user,
-    cart,
-    products
-  }
+  mutations,
+  plugins: process.env.NODE_ENV !== 'production' ? [] : []
 })
